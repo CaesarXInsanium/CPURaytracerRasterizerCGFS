@@ -1,4 +1,4 @@
-#include "utils/sphere.h"
+#include "lib/sphere.h"
 #include <string.h>
 
 Sphere Sphere_new(float r, vec3 p, RGB c) {

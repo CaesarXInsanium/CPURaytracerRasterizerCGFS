@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "utils/pixel.h"
+#include "lib/pixel.h"
 
 int printppm(int w, int h){
   int i;

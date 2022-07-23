@@ -15,18 +15,18 @@ DEPS = [
     dependency('cglm'),
 ]
 
-UTILS_SRC = [
-  'utils/ppm.c',
-  'utils/canvas.c',
-  'utils/scene.c',
-  'utils/pixel.c'
+lib_SRC = [
+  'lib/ppm.c',
+  'lib/canvas.c',
+  'lib/scene.c',
+  'lib/pixel.c'
 ]
 
 
 
-utils = library(
-  'utils',
-  UTILS_SRC,
+lib = library(
+  'lib',
+  lib_SRC,
   dependencies: DEPS,
 )
 
@@ -40,5 +40,5 @@ executable(
           SRC, 
           install : true,
           dependencies: DEPS,
-          link_with: utils
+          link_with: lib
            )
