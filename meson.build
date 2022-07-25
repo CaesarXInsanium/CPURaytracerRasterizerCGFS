@@ -5,7 +5,7 @@ project(
   default_options: [
     'warning_level=3',
     'werror=true',
-    'buildtype=debugoptimized',
+    'buildtype=debug',
     'debug=true',
     #'optimization=3',
     'c_std=c18'
@@ -13,22 +13,24 @@ project(
 
 DEPS = [
     dependency('cglm'),
+    dependency('sdl2'),
 ]
 
 lib_SRC = [
   'lib/ppm.c',
   'lib/canvas.c',
   'lib/scene.c',
-  'lib/pixel.c'
+  'lib/pixel.c',
+  'lib/sphere.c'
 ]
 
 
 
-lib = library(
-  'lib',
-  lib_SRC,
-  dependencies: DEPS,
-)
+#  cgfs = library(
+#   'lib',
+#   lib_SRC,
+#   dependencies: DEPS,
+# )
 
 
 SRC = [
@@ -36,9 +38,9 @@ SRC = [
   ]
 
 executable(
-          'ppmraytracer',
+          'software_raytrace',
           SRC, 
           install : true,
           dependencies: DEPS,
-          link_with: lib
+          # link_with:cgfs  
            )

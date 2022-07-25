@@ -3,6 +3,13 @@
 #include <cglm/cglm.h>
 #include <string.h>
 
+Viewport Viewport_new(float w, float h, float d) {
+  Viewport view;
+  view.w = w;
+  view.h = h;
+  view.d = d;
+  return view;
+}
 Camera Camera_new(vec3 pos, vec3 dir, Viewport viewport) {
   Camera cam;
   memcpy(cam.pos, pos, sizeof(vec3));
@@ -18,13 +25,16 @@ Scene *Scene_new(Camera cam, Sphere **spheres) {
   return scene;
 }
 Scene *Scene_empty(void) {
-  Viewport = 
-  Camera_new()
-  return Scene_new(0, NULL); }
+  Viewport view = Viewport_new(10, 10, 10);
+  vec3 cpos = {0, 0, 0};
+  vec3 cdir = {0, 0, 1};
+  Camera cam = Camera_new(cpos, cdir, view);
+
+  return Scene_new(cam, NULL);
+}
 Scene *Scene_default(void) { return Scene_empty(); }
 
-RGB Scene_calc_color(Scene *scene, vec3 viewport) {
-  //CanvasToViewPort
+RGB Scene_calc_color(Scene *scene, vec3 view_coords) {
+  
   return RGB_new(0, 0, 0);
 }
-

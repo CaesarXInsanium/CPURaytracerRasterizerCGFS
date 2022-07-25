@@ -1,21 +1,25 @@
 #pragma once
 #include "lib/pixel.h"
-#include "lib/types.h"
 #include "lib/scene.h"
+#include "lib/types.h"
+#include <SDL2/SDL.h>
 #include <cglm/cglm.h>
 
 typedef struct Canvas_ {
-  int w;
-  int h;
-  int **buffer;
+  int width;
+  int height;
+  SDL_Window *window;
+  SDL_Surface *surface;
+  unsigned int *pixels;
 } Canvas;
 
 // Returns pointer to new canvas with proper settings
-Canvas *Canvas_new(int w, int h);
+Canvas *Canvas_new(int w, int h, SDL_Window *window, SDL_Surface *surface,
+                   unsigned int *pixels);
 
 void Canvas_destroy(Canvas *canvas);
 
-int Canvas_put_pixel(Canvas *canvas,Coord coord, RGB color);
+int Canvas_put_pixel(Canvas *canvas, Coord coord, RGB color);
 
 // Writes to buffer the objects described in the scene
 int Canvas_draw(Canvas *canvas, Scene *scene);

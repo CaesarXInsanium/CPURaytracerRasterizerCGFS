@@ -7,8 +7,10 @@
 typedef struct Viewport_ {
   float w;
   float h;
-  float distance;
+  float d;
 } Viewport;
+
+Viewport Viewport_new(float w, float h, float d);
 
 typedef struct Camera_ {
   vec3 pos;
@@ -16,7 +18,7 @@ typedef struct Camera_ {
   Viewport view;
 } Camera;
 
-Camera Camera_new(vec3 pos, vec3 dir);
+Camera Camera_new(vec3 pos, vec3 dir, Viewport viewport);
 
 typedef struct Scene_ {
   Camera camera;
@@ -30,4 +32,4 @@ Scene *Scene_empty(void);
 Scene *Scene_default(void);
 
 // Must receive coordinates in canvas space, not screen space
-RGB Scene_calc_color(Scene *scene, Coord canvas_coord);
+RGB Scene_calc_color(Scene *scene, vec3 view_coords);
