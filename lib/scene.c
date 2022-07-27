@@ -35,6 +35,6 @@ Scene *Scene_empty(void) {
 Scene *Scene_default(void) { return Scene_empty(); }
 
 RGB Scene_calc_color(Scene *scene, vec3 view_coords) {
-  
-  return RGB_new(0, 0, 0);
+  printf("pointers:\t%p\t%p\n", (void *)scene, (void *)view_coords);
+  return RGB_new(0, 0, 0, 255);
 }

@@ -23,4 +23,3 @@ software ray tracer in C.
 
 - Multithreading?
 - Game engine?
-

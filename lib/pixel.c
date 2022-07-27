@@ -5,7 +5,7 @@
 uint8_t safe_add(uint8_t a, uint8_t b) {
   if (a > 0 && b > UINT8_MAX - a) {
     return UINT8_MAX;
-  } else if (a < 0 && b < UINT8_MAX - a) {
+  } else if (b < UINT8_MAX - a) {
     return 0;
   } else {
     return 0;

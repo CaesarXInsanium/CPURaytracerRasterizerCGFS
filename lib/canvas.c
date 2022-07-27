@@ -59,22 +59,24 @@ int Canvas_print(Canvas *canvas) {
 }
 
 Coord ScreenToCanvasSpace(Canvas *canvas, Coord s) {
-  int cx = s.x - (canvas->w / 2);
-  int cy = s.x + (canvas->w / 2);
+  int cx = s.x - (canvas->width / 2);
+  int cy = s.x + (canvas->width / 2);
   return Coord_new(cx, cy);
 }
 Coord CanvasToScreenSpace(Canvas *canvas, Coord c) {
-  int sx = (canvas->w / 2) + c.x;
-  int sy = (canvas->h / 2) - c.y;
+  int sx = (canvas->width / 2) + c.x;
+  int sy = (canvas->height / 2) - c.y;
   return Coord_new(sx, sy);
 }
 vec3 *CanvasToViewport(Canvas *canvas, Viewport *viewport, Coord cc) {
   vec3 *result = (vec3 *)malloc(sizeof(vec3));
-  float vx = cc.x * (viewport->w / canvas->w);
-  float vy = cc.y * (viewport->h / canvas->h);
+
+  float vx = cc.x * (viewport->w / canvas->width);
+  float vy = cc.y * (viewport->h / canvas->height);
   float vz = viewport->d;
-  memcpy(result[0], (void *)&vx, sizeof(float));
-  memcpy(result[1], (void *)&vy, sizeof(float));
-  memcpy(result[0], (void *)&vz, sizeof(float));
+  printf("Values %f%f%f", vx, vy, vz);
+  // memcpy(result[0], (void *)&vx, sizeof(float));
+  // memcpy(result[1], (void *)&vy, sizeof(float));
+  // memcpy(result[2], (void *)&vz, sizeof(float));
   return result;
 }

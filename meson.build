@@ -26,11 +26,11 @@ lib_SRC = [
 
 
 
-#  cgfs = library(
-#   'lib',
-#   lib_SRC,
-#   dependencies: DEPS,
-# )
+  cgfs = library(
+   'lib',
+   lib_SRC,
+   dependencies: DEPS,
+ )
 
 
 SRC = [
@@ -42,5 +42,5 @@ executable(
           SRC, 
           install : true,
           dependencies: DEPS,
-          # link_with:cgfs  
+          link_with:cgfs  
            )
