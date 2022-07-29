@@ -1,6 +1,6 @@
 #pragma once
-#include "lib/types.h"
-#include "lib/pixel.h"
+#include "cgfs/types.h"
+#include "cgfs/pixel.h"
 #include <cglm/cglm.h>
 
 typedef struct Sphere_ {

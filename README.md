@@ -23,3 +23,16 @@ software ray tracer in C.
 
 - Multithreading?
 - Game engine?
+
+## Architecture
+
+- main()
+  - initialize canvas
+  - initialize SDL window
+  - initialize key handler
+- cgfs: handles Ray tracing Code
+  - canvas draws to SDL pixel buffer
+- include: useful stuff
+  - private variables
+  - main event handler
+  - key handler

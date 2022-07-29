@@ -16,25 +16,28 @@ DEPS = [
     dependency('sdl2'),
 ]
 
-lib_SRC = [
-  'lib/ppm.c',
-  'lib/canvas.c',
-  'lib/scene.c',
-  'lib/pixel.c',
-  'lib/sphere.c'
+cgfs_src = [
+  'cgfs/ppm.c',
+  'cgfs/canvas.c',
+  'cgfs/scene.c',
+  'cgfs/pixel.c',
+  'cgfs/sphere.c',
 ]
 
 
 
-  cgfs = library(
-   'lib',
-   lib_SRC,
+cgfs = library(
+   'cgfs',
+   cgfs_src,
    dependencies: DEPS,
  )
 
 
 SRC = [
-  'src/main.c'
+  'src/main.c',
+  'src/app.c',
+  'src/event.c',
+  'src/keys.c',
   ]
 
 executable(
@@ -42,5 +45,6 @@ executable(
           SRC, 
           install : true,
           dependencies: DEPS,
-          link_with:cgfs  
-           )
+          link_with: cgfs  ,
+          include_directories: include_directories('include')
+)

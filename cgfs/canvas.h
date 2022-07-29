@@ -1,7 +1,7 @@
 #pragma once
-#include "lib/pixel.h"
-#include "lib/scene.h"
-#include "lib/types.h"
+#include "cgfs/pixel.h"
+#include "cgfs/scene.h"
+#include "cgfs/types.h"
 #include <SDL2/SDL.h>
 #include <cglm/cglm.h>
 
@@ -21,6 +21,7 @@ void Canvas_destroy(Canvas *canvas);
 
 int Canvas_put_pixel(Canvas *canvas, Coord coord, RGB color);
 
+int Canvas_clear(Canvas *canvas);
 // Writes to buffer the objects described in the scene
 int Canvas_draw(Canvas *canvas, Scene *scene);
 

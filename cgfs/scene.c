@@ -1,5 +1,5 @@
-#include "lib/scene.h"
-#include "lib/pixel.h"
+#include "cgfs/scene.h"
+#include "cgfs/pixel.h"
 #include <cglm/cglm.h>
 #include <string.h>
 

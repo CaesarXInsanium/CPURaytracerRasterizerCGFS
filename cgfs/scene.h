@@ -1,7 +1,7 @@
 #pragma once
-#include "lib/pixel.h"
-#include "lib/sphere.h"
-#include "lib/types.h"
+#include "cgfs/pixel.h"
+#include "cgfs/sphere.h"
+#include "cgfs/types.h"
 #include <cglm/cglm.h>
 
 typedef struct Viewport_ {

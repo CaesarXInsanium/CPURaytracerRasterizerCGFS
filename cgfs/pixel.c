@@ -1,4 +1,4 @@
-#include "lib/pixel.h"
+#include "cgfs/pixel.h"
 #include <limits.h>
 #include <stdint.h>
 
